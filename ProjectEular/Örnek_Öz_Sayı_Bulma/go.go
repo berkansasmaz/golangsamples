@@ -21,6 +21,6 @@ func main() {
 		özsayı += toplam
 
 	}
-	fmt.println(özsayı)
+	fmt.Println(özsayı)
 
 }
