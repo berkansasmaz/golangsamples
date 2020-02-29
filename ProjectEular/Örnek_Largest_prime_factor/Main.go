@@ -8,24 +8,23 @@ func Üreteç(ch chan int) {
 	}
 }
 
-
 func filtre(içine, çıkış chan int, asalSayı int) {
 	for {
-		i := <-içine;
-		if i %asalSayı != 0 {
+		i := <-içine
+		if i%asalSayı != 0 {
 			çıkış <- i
 		}
 	}
 }
 
 func main() {
-	ch := make(chan int);
-	go Üreteç(ch);
+	ch := make(chan int)
+	go Üreteç(ch)
 	for {
-		prime := <-ch;
-		fmt.Println(prime);
-		ch1 := make(chan int);
-		go filtre(ch, ch1, prime);
+		prime := <-ch
+		fmt.Println(prime)
+		ch1 := make(chan int)
+		go filtre(ch, ch1, prime)
 		ch = ch1
 	}
 }
